@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<ruleset name="StockNotifier">
+ <description>WordPress standards with documented PSR-4 and durable custom-table exceptions.</description>
+ <file>quixdevs-stocknotifier.php</file><file>uninstall.php</file><file>includes</file>
+ <arg name="extensions" value="php"/><arg name="colors"/>
+ <rule ref="WordPress">
+  <!-- Requested PSR-4 class paths intentionally preserve class casing. -->
+  <exclude name="WordPress.Files.FileName"/>
+  <!-- Machine provider identifier is lowercase wordpress. Never auto-change it. -->
+  <exclude name="WordPress.WP.CapitalPDangit"/>
+  <!-- Exceptions are escaped at the admin output boundary, never as stored data. -->
+  <exclude name="WordPress.Security.EscapeOutput.ExceptionNotEscaped"/>
+ </rule>
+ <rule ref="WordPress.DB.DirectDatabaseQuery"><exclude-pattern>*/includes/Data/*</exclude-pattern><exclude-pattern>*/includes/Inventory/Reconciliation.php</exclude-pattern><exclude-pattern>*/includes/Support/Lock_Manager.php</exclude-pattern><exclude-pattern>*/uninstall.php</exclude-pattern></rule>
+ <rule ref="WordPress.DB.PreparedSQL.InterpolatedNotPrepared"><exclude-pattern>*/includes/Data/*</exclude-pattern><exclude-pattern>*/includes/Inventory/Reconciliation.php</exclude-pattern></rule>
+ <!-- PHPMailer exposes an established mixed-case public property. -->
+ <rule ref="WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase"><exclude-pattern>*/includes/Notifications/Email_Sender.php</exclude-pattern></rule>
+</ruleset>

@@ -1,0 +1,755 @@
+# Copyright (C) 2026 QuixDevs
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: QuixDevs StockNotifier 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/quixdevs-stocknotifier\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-09T18:10:50+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: quixdevs-stocknotifier\n"
+
+#. Plugin Name of the plugin
+#: quixdevs-stocknotifier.php
+msgid "QuixDevs StockNotifier"
+msgstr ""
+
+#. Description of the plugin
+#: quixdevs-stocknotifier.php
+msgid "Low Stock Alerts for WooCommerce. Monitor Stock. Alert Vendors. Stay Informed."
+msgstr ""
+
+#. Author of the plugin
+#: quixdevs-stocknotifier.php
+msgid "QuixDevs"
+msgstr ""
+
+#: includes/Activator.php:28
+msgid "Activate StockNotifier individually on each site."
+msgstr ""
+
+#: includes/Activator.php:31
+msgid "StockNotifier requires active WooCommerce 10.0 or newer."
+msgstr ""
+
+#: includes/Admin/Activity_Page.php:31
+#: includes/Admin/Low_Stock_List.php:57
+msgid "Product"
+msgstr ""
+
+#: includes/Admin/Activity_Page.php:31
+#: includes/Admin/Low_Stock_List.php:57
+msgid "SKU"
+msgstr ""
+
+#: includes/Admin/Activity_Page.php:31
+msgid "Stock / Threshold"
+msgstr ""
+
+#: includes/Admin/Activity_Page.php:31
+msgid "Recipient / Provider"
+msgstr ""
+
+#: includes/Admin/Activity_Page.php:31
+msgid "Notification Status"
+msgstr ""
+
+#: includes/Admin/Activity_Page.php:31
+#: includes/Admin/Activity_Page.php:55
+msgid "Date/Time"
+msgstr ""
+
+#: includes/Admin/Activity_Page.php:43
+msgid "Confirm retry"
+msgstr ""
+
+#: includes/Admin/Activity_Page.php:44
+msgid "Retry Failed Notification"
+msgstr ""
+
+#: includes/Admin/Activity_Page.php:50
+msgid "No alert episodes yet."
+msgstr ""
+
+#: includes/Admin/Activity_Page.php:55
+msgid "Diagnostic Entries"
+msgstr ""
+
+#: includes/Admin/Activity_Page.php:55
+msgid "Item / Episode"
+msgstr ""
+
+#: includes/Admin/Activity_Page.php:55
+msgid "Action / Context"
+msgstr ""
+
+#: includes/Admin/Admin.php:54
+msgid "Administrator permission required."
+msgstr ""
+
+#: includes/Admin/Admin.php:63
+msgid "StockNotifier"
+msgstr ""
+
+#: includes/Admin/Admin.php:75
+msgid "Dashboard"
+msgstr ""
+
+#: includes/Admin/Admin.php:76
+msgid "Low Stock Products"
+msgstr ""
+
+#: includes/Admin/Admin.php:77
+msgid "Email Templates"
+msgstr ""
+
+#: includes/Admin/Admin.php:78
+msgid "Settings"
+msgstr ""
+
+#: includes/Admin/Admin.php:79
+msgid "Activity"
+msgstr ""
+
+#: includes/Admin/Admin.php:80
+msgid "Tools"
+msgstr ""
+
+#: includes/Admin/Admin.php:101
+msgid "Searching…"
+msgstr ""
+
+#: includes/Admin/Admin.php:102
+msgid "No matching products."
+msgstr ""
+
+#: includes/Admin/Admin.php:103
+msgid "Search failed. Please try again."
+msgstr ""
+
+#: includes/Admin/Admin.php:148
+msgid "StockNotifier: the selected recipient provider is unavailable or needs configuration. Its selection is preserved and affected notifications are paused."
+msgstr ""
+
+#: includes/Admin/Admin.php:151
+msgid "StockNotifier requires initialized Action Scheduler. Pending notifications remain in durable storage."
+msgstr ""
+
+#: includes/Admin/Admin.php:169
+msgid "POST required."
+msgstr ""
+
+#: includes/Admin/Admin.php:209
+msgid "Select a valid WooCommerce product."
+msgstr ""
+
+#: includes/Admin/Admin.php:224
+msgid "Action Scheduler is unavailable."
+msgstr ""
+
+#: includes/Admin/Admin.php:227
+msgid "Explicit confirmation is required."
+msgstr ""
+
+#: includes/Admin/Admin.php:250
+msgid "Unknown action."
+msgstr ""
+
+#: includes/Admin/Admin.php:255
+msgid "Request completed or queued. Background results appear on this screen."
+msgstr ""
+
+#: includes/Admin/Admin.php:278
+msgid "Enter a valid subject without line breaks and a body under 100 KB."
+msgstr ""
+
+#: includes/Admin/Admin.php:302
+msgid "A valid test destination and Action Scheduler are required."
+msgstr ""
+
+#: includes/Admin/Admin.php:310
+msgid "Wait one minute between test emails."
+msgstr ""
+
+#: includes/Admin/Admin.php:335
+msgid "Unknown template action."
+msgstr ""
+
+#: includes/Admin/Dashboard.php:29
+msgid "Monitored inventory items"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:30
+msgid "Currently low-stock items"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:31
+msgid "Out-of-stock items"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:32
+msgid "Alert episodes created (retained history)"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:33
+msgid "Pending notifications"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:34
+#: includes/Admin/View.php:106
+msgid "Accepted by mail transport"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:35
+msgid "Failed notifications"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:36
+msgid "Unresolved recipients"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:37
+msgid "Delivery unknown"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:45
+msgid "Recent Notification Activity"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:54
+msgid "Scheduling Health"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:55
+msgid "WooCommerce:"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:55
+#: includes/Admin/Dashboard.php:56
+#: includes/Admin/View.php:102
+msgid "Available"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:55
+msgid "Unavailable"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:56
+msgid "Action Scheduler:"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:56
+msgid "Unavailable — jobs are preserved until recovery"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:58
+msgid "Last reconciliation:"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:58
+msgid "Not run yet"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:60
+msgid "WP-Cron is disabled or processing appears delayed. Configure a real cron runner for timely notifications."
+msgstr ""
+
+#: includes/Admin/Dashboard.php:62
+msgid "Inspect pending and failed Action Scheduler jobs"
+msgstr ""
+
+#: includes/Admin/Email_Templates.php:28
+msgid "Email Subject"
+msgstr ""
+
+#: includes/Admin/Email_Templates.php:29
+msgid "Email Body"
+msgstr ""
+
+#: includes/Admin/Email_Templates.php:39
+msgid "Test destination"
+msgstr ""
+
+#: includes/Admin/Email_Templates.php:40
+msgid "Save Templates"
+msgstr ""
+
+#: includes/Admin/Email_Templates.php:40
+msgid "Preview Email"
+msgstr ""
+
+#: includes/Admin/Email_Templates.php:40
+msgid "Send Test Email"
+msgstr ""
+
+#: includes/Admin/Email_Templates.php:43
+msgid "Latest TEST EMAIL status:"
+msgstr ""
+
+#: includes/Admin/Email_Templates.php:45
+msgid "Available Variables"
+msgstr ""
+
+#: includes/Admin/Email_Templates.php:45
+msgid "Variable"
+msgstr ""
+
+#: includes/Admin/Email_Templates.php:45
+msgid "Sample value"
+msgstr ""
+
+#: includes/Admin/Email_Templates.php:49
+msgid "Values are escaped. Unknown variables remain literal. PHP and shortcodes are never executed."
+msgstr ""
+
+#: includes/Admin/Email_Templates.php:52
+msgid "Email Preview — Synthetic Sample"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:33
+msgid "All Monitored"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:34
+msgid "Low Stock"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:35
+msgid "Out of Stock"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:36
+msgid "Notified"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:37
+msgid "Pending"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:38
+#: includes/Admin/View.php:112
+msgid "Failed"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:39
+msgid "Unresolved Recipient"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:43
+msgid "Filter inventory"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:47
+msgid "Search by product name, SKU or ID"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:47
+msgid "Product name, SKU or ID"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:47
+msgid "Sort by"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:49
+msgid "Product ID"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:50
+#: includes/Admin/Low_Stock_List.php:57
+msgid "Stock Quantity"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:51
+msgid "Updated"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:52
+msgid "State"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:56
+msgid "Apply"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:57
+msgid "Threshold"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:57
+msgid "Product Owner/Vendor"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:57
+msgid "Provider"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:57
+msgid "Last Alert"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:57
+msgid "Notification State"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:57
+msgid "Actions"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:66
+msgid "View Product"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:68
+#: includes/Admin/Tools_Page.php:33
+msgid "Preview Recipient"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:68
+msgid "View Activity / Retry"
+msgstr ""
+
+#: includes/Admin/Low_Stock_List.php:71
+msgid "No monitored items match. Initial baselines are built in the background."
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:29
+msgid "General"
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:30
+msgid "Enable StockNotifier"
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:31
+msgid "Global Low Stock Threshold"
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:32
+msgid "Enable Out-of-Stock Alerts"
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:33
+msgid "Activity Logging"
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:34
+msgid "Disabling out-of-stock alerts suppresses crossings at zero or negative stock. Threshold changes establish new baselines without a campaign."
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:35
+msgid "Notification Recipients"
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:35
+msgid "Notification Recipient Source"
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:41
+msgid "Notify Assigned Authors"
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:43
+msgid "Primary Assigned Author"
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:44
+msgid "All Assigned Registered Authors"
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:48
+msgid "Guest authors without a linked WordPress account are skipped. Primary means the first author in PublishPress assignment order."
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:49
+msgid "Optional Admin Copy"
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:50
+msgid "Send Additional Copy to Administrator"
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:51
+msgid "Additional Administrator Emails"
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:51
+msgid "Comma-separated, maximum ten addresses. Each copy is sent individually."
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:52
+msgid "Advanced"
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:53
+msgid "Automatic retries after a rejected send"
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:54
+msgid "Delete Plugin Data on Uninstall"
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:55
+msgid "Default uninstall behavior preserves data. Delivery-unknown sends are never retried automatically. History retention: 90 days."
+msgstr ""
+
+#: includes/Admin/Settings_Page.php:56
+msgid "Save Settings"
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:25
+msgid "Preview Notification Recipient"
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:28
+msgid "Select/Search WooCommerce Product"
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:28
+msgid "Matching products"
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:36
+msgid "Product:"
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:36
+msgid "Recipient Provider:"
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:38
+msgid "Valid"
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:42
+msgid "Existing Low-Stock Products"
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:42
+msgid "A background preview counts affected products, recipients and estimated messages. Each confirmed run queues at most 500 previously unalerted inventory items. Counts can change before delivery."
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:44
+msgid "Preview Existing Low-Stock Products"
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:49
+msgid "Affected product count"
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:50
+msgid "Resolved recipient count"
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:51
+msgid "Unresolved recipient count"
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:52
+msgid "Estimated notification count"
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:59
+msgid "I confirm the previewed notification campaign."
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:60
+msgid "Notify Existing Low-Stock Products"
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:63
+msgid "Recovery"
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:65
+msgid "Repair Missing Notification Jobs"
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:66
+msgid "Retry Failed Notifications"
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:67
+msgid "Refresh Monitoring Baselines"
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:70
+msgid "Confirm background operation"
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:73
+msgid "Baseline refresh initializes missing or outdated-generation observations without sending. Existing episodes remain protected. After a threshold change, run a fresh preview before a manual campaign."
+msgstr ""
+
+#: includes/Admin/Tools_Page.php:73
+msgid "Inspect Failed Jobs"
+msgstr ""
+
+#: includes/Admin/View.php:71
+msgid "Use digits only, within the displayed range. No signs, spaces or decimals."
+msgstr ""
+
+#: includes/Admin/View.php:103
+msgid "Not Installed"
+msgstr ""
+
+#: includes/Admin/View.php:104
+msgid "Inactive"
+msgstr ""
+
+#: includes/Admin/View.php:105
+msgid "Unsupported API / Configuration Required"
+msgstr ""
+
+#: includes/Admin/View.php:107
+msgid "Delivery unknown — review before sending again"
+msgstr ""
+
+#: includes/Admin/View.php:108
+msgid "Healthy"
+msgstr ""
+
+#: includes/Admin/View.php:109
+msgid "Low stock / baseline"
+msgstr ""
+
+#: includes/Admin/View.php:110
+msgid "Queued"
+msgstr ""
+
+#: includes/Admin/View.php:111
+msgid "Attempted / Sending"
+msgstr ""
+
+#: includes/Admin/View.php:113
+msgid "Paused"
+msgstr ""
+
+#: includes/Admin/View.php:114
+msgid "Unresolved recipient"
+msgstr ""
+
+#: includes/Admin/View.php:115
+msgid "Cancelled"
+msgstr ""
+
+#: includes/Admin/View.php:116
+msgid "Disabled"
+msgstr ""
+
+#: includes/Inventory/Reconciliation.php:153
+msgid "A background tool is already running."
+msgstr ""
+
+#: includes/Inventory/Reconciliation.php:196
+msgid "Preview expired or settings changed. Run a fresh preview."
+msgstr ""
+
+#: includes/Notifications/Notification_Manager.php:134
+msgid "Administrator"
+msgstr ""
+
+#: includes/Notifications/Template_Renderer.php:35
+msgid "Not set"
+msgstr ""
+
+#: includes/Plugin.php:35
+msgid "StockNotifier is paused: active WooCommerce 10.0 or newer is required."
+msgstr ""
+
+#: includes/Recipients/Dokan_Vendor.php:30
+msgid "Dokan Vendor"
+msgstr ""
+
+#: includes/Recipients/Dokan_Vendor.php:54
+msgid "Product ownership is not a verified Dokan seller."
+msgstr ""
+
+#: includes/Recipients/Dokan_Vendor.php:58
+msgid "Dokan vendor is unavailable or selling is disabled."
+msgstr ""
+
+#: includes/Recipients/Provider.php:29
+msgid "No eligible WordPress account exists."
+msgstr ""
+
+#: includes/Recipients/PublishPress_Authors.php:30
+msgid "PublishPress Authors / Pro"
+msgstr ""
+
+#: includes/Recipients/PublishPress_Authors.php:53
+msgid "No PublishPress authors are assigned to this product."
+msgstr ""
+
+#: includes/Recipients/PublishPress_Authors.php:74
+msgid "Assigned authors contain no eligible registered account with a valid email. Primary guests are skipped."
+msgstr ""
+
+#: includes/Recipients/Recipient_Resolver.php:45
+msgid "Selected integration is unavailable or requires configuration. Notifications are paused."
+msgstr ""
+
+#: includes/Recipients/Recipient_Resolver.php:53
+msgid "Product no longer exists."
+msgstr ""
+
+#: includes/Recipients/Recipient_Resolver.php:66
+msgid "Resolved from the selected provider and verified WordPress accounts."
+msgstr ""
+
+#: includes/Recipients/WCVendors_Vendor.php:30
+msgid "WC Vendors"
+msgstr ""
+
+#: includes/Recipients/WCVendors_Vendor.php:54
+msgid "Product ownership is not a verified WC Vendors seller."
+msgstr ""
+
+#: includes/Recipients/WordPress_Author.php:30
+msgid "WordPress Product Author"
+msgstr ""
+
+#: includes/Support/Settings.php:72
+msgid "Select exactly one supported recipient provider."
+msgstr ""
+
+#: includes/Support/Settings.php:75
+msgid "The selected provider is unavailable. Configure its integration first."
+msgstr ""
+
+#: includes/Support/Settings.php:79
+msgid "Select a valid assigned-author policy."
+msgstr ""
+
+#: includes/Support/Settings.php:87
+msgid "Specify at least one administrator copy address."
+msgstr ""
+
+#: includes/Support/Settings.php:91
+msgid "Automatic retries must be between zero and five."
+msgstr ""
+
+#: includes/Support/Validator.php:27
+msgid "Use ASCII digits only, with no spaces, signs, decimals or exponents."
+msgstr ""
+
+#: includes/Support/Validator.php:33
+msgid "Threshold exceeds the supported maximum of 2147483647."
+msgstr ""
+
+#: includes/Support/Validator.php:55
+msgid "Enter valid email addresses separated by commas."
+msgstr ""
+
+#: includes/Support/Validator.php:62
+msgid "At most ten administrator copy addresses are allowed."
+msgstr ""
+
+#: includes/Support/Validator.php:66
+msgid "An administrator email address is invalid."
+msgstr ""

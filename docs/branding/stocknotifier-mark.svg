@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="StockNotifier inventory and email mark"><rect width="256" height="256" fill="#091827"/><g transform="translate(128,128) scale(1)">
+<rect x="-112" y="-112" width="224" height="224" rx="38" fill="#102b3d" stroke="#204355" stroke-width="2"/>
+<path d="M-73 -39 0 -72 73 -39 73 50 0 82 -73 50Z" fill="#0d2233" stroke="#35e2cc" stroke-width="7" stroke-linejoin="round"/>
+<path d="M-73 -39 0 -7 73 -39 M0 -7V82 M-38 -55 35 -23" fill="none" stroke="#35e2cc" stroke-width="6" stroke-linejoin="round"/>
+<path d="M-54 -9V27 M-36 -1V34 M-18 7V25" stroke="#f4fbff" stroke-width="8" stroke-linecap="round"/>
+<rect x="17" y="11" width="83" height="61" rx="9" fill="#f4fbff" stroke="#091827" stroke-width="5"/>
+<path d="M23 19 58 44 94 19 M22 64 44 45 M95 64 73 45" fill="none" stroke="#0e8074" stroke-width="5" stroke-linejoin="round"/>
+<circle cx="95" cy="8" r="15" fill="#35e2cc" stroke="#091827" stroke-width="5"/>
+</g></svg>

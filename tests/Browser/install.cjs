@@ -1,0 +1,28 @@
+const {chromium}=require('playwright');
+const assert=require('node:assert/strict');
+const path=require('path');
+(async()=>{
+ const base=process.env.QSN_BASE_URL;
+ if(!/^http:\/\/127\.0\.0\.1:\d+$/.test(base))throw new Error('Isolated localhost required');
+ const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true});
+ const context=await browser.newContext({viewport:{width:1440,height:1000}});
+ await context.route('**/*',route=>new URL(route.request().url()).origin===base?route.continue():route.abort());
+ const page=await context.newPage();
+ await page.goto(`${base}/wp-login.php`);await page.locator('#user_login').fill(process.env.QSN_ADMIN_USER);await page.locator('#user_pass').fill(process.env.QSN_ADMIN_PASSWORD);
+ await Promise.all([page.waitForURL('**/wp-admin/**'),page.locator('#wp-submit').click()]);
+ await page.goto(`${base}/wp-admin/plugin-install.php?tab=upload`);
+ await page.locator('#pluginzip').setInputFiles(path.resolve(__dirname,'../../../quixdevs-stocknotifier.zip'));
+ await page.locator('#install-plugin-submit').click();
+ await page.getByRole('link',{name:'Activate Plugin',exact:true}).waitFor();
+ assert.match(await page.locator('body').textContent(),/Plugin installed successfully/);
+ await page.screenshot({path:path.resolve(__dirname,'../../docs/screenshots/installation.png'),fullPage:true});
+ await page.getByRole('link',{name:'Activate Plugin',exact:true}).click();
+ await page.goto(`${base}/wp-admin/admin.php?page=quixdevs-stocknotifier-settings`);
+ await page.locator('.qsn h1').waitFor();
+ assert.equal(await page.locator('input[name=provider]:checked').inputValue(),'wordpress');
+ assert.equal(await page.locator('input[name=provider][value=dokan]').isDisabled(),true);
+ assert.equal(await page.locator('input[name=provider][value=wcvendors]').isDisabled(),true);
+ assert.equal(await page.locator('input[name=provider][value=publishpress]').isDisabled(),true);
+ console.log('PASS: WordPress Admin ZIP upload, extraction, native Activate Plugin, working StockNotifier Settings, WordPress default, optional providers inactive and disabled.');
+ await browser.close();
+})().catch(e=>{console.error(e);process.exit(1);});

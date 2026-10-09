@@ -1,0 +1,69 @@
+# Installed development dependencies; retain manifests and lockfiles.
+/vendor/
+/node_modules/
+
+# Test, lint and coverage output.
+/.phpunit.result.cache
+/.phpunit.cache/
+/.phpunit/
+/.phpcs-cache
+/.phpcs-cache/
+/coverage/
+/.coverage
+/.pytest_cache/
+__pycache__/
+*.py[cod]
+
+# Local configuration and credentials; keep committed *.dist templates.
+/.env
+/.env.*
+!.env.example
+/wp-config.php
+/wp-tests-config.php
+/phpunit.xml
+/phpunit-integration.xml
+/phpcs.xml
+/.phpcs.xml
+/auth.json
+/.npmrc
+/playwright-report/
+/test-results/
+*.pem
+*.key
+
+# Generated archives, build artifacts, databases and logs.
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+*.sql
+*.sql.gz
+*.sqlite
+*.sqlite3
+*.db
+*.log
+/dist/
+/build/
+/.release/
+/artifacts/
+/tmp/
+/temp/
+/docs/verification/
+
+# Local editor and operating-system files.
+/.idea/
+/.vscode/
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+*.orig
+*.rej
+
+# Intentionally tracked: source, tests, .github, composer.lock,
+# documentation, screenshots, branding SVG/PNG and WordPress.org assets.

@@ -19,7 +19,7 @@ The published repository was inspected: its earlier README embeds only one scree
 
 ## Installable ZIP
 
-File: `../quixdevs-stocknotifier.zip` relative to this repository root.
+File: `dist/quixdevs-stocknotifier.zip` relative to this repository root.
 
 SHA-256: `d36dfe7c3ebeda617b630e015d70a34af884ec9b15b5660fd27f3de7127b2d76`
 
@@ -32,3 +32,7 @@ The earlier runtime verification used the original package with SHA-256 `59e51cf
 Previously committed `docs/verification/` files remain in GitHub until removed separately; `.gitignore` does not untrack existing files. That directory is deliberately absent from this cleaned source folder.
 
 [Publishing instructions](github-publishing-checklist.md) · [Branding](branding/README.md)
+
+## Packaging update
+
+The 2026-10-14 runtime distribution build uses `dist/`, maximum ZIP compression, a file manifest and SHA-256 sidecar. The earlier checksum above is historical; [release-distribution.md](release-distribution.md) records the current artifact checksum and draft workflow. Production file bytes and version remain unchanged.

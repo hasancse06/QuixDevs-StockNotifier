@@ -6,7 +6,7 @@ Completed implementation and local verification: **2026-10-10, Asia/Dhaka**.
 
 An independent namespaced WooCommerce plugin was created in `quixdevs-stocknotifier/`. No historical metadata, hooks or business rules were imported. Nothing was published, pushed, deployed or submitted externally.
 
-Release ZIP: **`../quixdevs-stocknotifier.zip`** relative to this plugin root. Its top-level directory is `quixdevs-stocknotifier/`. It contains 40 production files: bootstrap, uninstall, bundled loader/classes, lightweight admin assets, translation template, WordPress.org readme and GPL license. Tests, vendor packages, CI, screenshots, documentation, credentials and temporary configuration are excluded. The reproducible builder verifies archive integrity, unique safe paths and an installable bootstrap.
+Release ZIP: **`dist/quixdevs-stocknotifier.zip`** relative to this plugin root. Its top-level directory is `quixdevs-stocknotifier/`. It contains 40 production files: bootstrap, uninstall, bundled loader/classes, lightweight admin assets, translation template, WordPress.org readme and GPL license. Tests, vendor packages, CI, screenshots, documentation, credentials and temporary configuration are excluded. The reproducible builder verifies archive integrity, unique safe paths and an installable bootstrap.
 
 ## Architecture and features
 
@@ -97,3 +97,7 @@ Install the ZIP using **Plugins → Add Plugin → Upload Plugin**, activate Woo
 ## GitHub presentation preparation
 
 The dedicated `quixdevs-stocknotifier-github` folder follows the ProductClock presentation conventions. It includes the branded README, six-screen real gallery, creator/publisher credit, editable artwork, listing/release/publishing guides, contributing/security guidance, robust `.gitignore` and clean source package. All application code and assets remain identical to the verified implementation. The final main plugin header preserves the Author URI already present in the published GitHub repository; the metadata-only addition changes the installable ZIP checksum. Final packaging checks are recorded in `docs/github-preparation-report.md`. Presentation assets are excluded from the runtime ZIP; vendor packages, caches, local logs and credentials are omitted from the upload folder. No repository was created remotely, pushed or published.
+
+## Runtime distribution update
+
+Release tooling now writes the lightweight ZIP, SHA-256 sidecar and file manifest to `dist/`. All 40 production files and version 1.0.0 remain unchanged. A reusable quality workflow and separate draft-only release workflow validate existing tag identity, run checks, scan source/runtime files, and attach verified artifacts without publishing. Current measurements and installation verification are in [release-distribution.md](release-distribution.md).

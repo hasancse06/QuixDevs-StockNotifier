@@ -11,7 +11,7 @@ const path=require('path');
  await page.goto(`${base}/wp-login.php`);await page.locator('#user_login').fill(process.env.QSN_ADMIN_USER);await page.locator('#user_pass').fill(process.env.QSN_ADMIN_PASSWORD);
  await Promise.all([page.waitForURL('**/wp-admin/**'),page.locator('#wp-submit').click()]);
  await page.goto(`${base}/wp-admin/plugin-install.php?tab=upload`);
- await page.locator('#pluginzip').setInputFiles(path.resolve(__dirname,'../../../quixdevs-stocknotifier.zip'));
+ await page.locator('#pluginzip').setInputFiles(process.env.QSN_INSTALL_ZIP || path.resolve(__dirname,'../../dist/quixdevs-stocknotifier.zip'));
  await page.locator('#install-plugin-submit').click();
  await page.getByRole('link',{name:'Activate Plugin',exact:true}).waitFor();
  assert.match(await page.locator('body').textContent(),/Plugin installed successfully/);

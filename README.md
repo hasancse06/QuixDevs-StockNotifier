@@ -5,13 +5,21 @@
 **Low Stock Alerts for WooCommerce**  
 Monitor Stock. Alert Vendors. Stay Informed.
 
+## Download the installable plugin
+
+**[Open GitHub Releases](https://github.com/hasancse06/QuixDevs-StockNotifier/releases)** → choose a published release → **Assets → `quixdevs-stocknotifier.zip`**.
+
+Download that lightweight installation asset. **Do not install GitHub's “Source code (zip)” or the full repository ZIP**; those are developer archives containing tests, documentation and presentation assets. If the installation asset is not listed yet, it has not been published. Draft releases remain for maintainer review.
+
+Install through **WordPress Admin → Plugins → Add Plugin → Upload Plugin** with WooCommerce active. [Build and release documentation](docs/release-distribution.md).
+
 A free, open-source **WooCommerce low-stock notification plugin** for stores that need to alert product authors or marketplace vendors when managed inventory runs low. Choose one recipient system, set a whole-number threshold, and customize the email from native WordPress screens.
 
 StockNotifier creates one alert per threshold crossing and sends messages in the background. Restocking above the threshold rearms the next alert, so repeated low-stock updates do not flood inboxes.
 
 Version **1.0.0** · GPL-2.0-or-later · Published by **QuixDevs**
 
-**[Installation](#installation)** · [Quick start](#quick-start) · [Recipient compatibility](#recipient-compatibility) · [Screenshots](#screenshots) · [Developer docs](#developer-documentation-and-testing)
+**[Download](#download-the-installable-plugin)** · [Installation](#installation) · [Quick start](#quick-start) · [Recipient compatibility](#recipient-compatibility) · [Screenshots](#screenshots) · [Developer docs](#developer-documentation-and-testing)
 
 ![StockNotifier settings with a native numeric threshold, one explicit recipient provider, optional administrator copies and uninstall retention](docs/screenshots/settings.png)
 
@@ -42,9 +50,9 @@ Action Scheduler is supplied by WooCommerce. Minimum requirements describe the i
 
 **WooCommerce must already be installed and active. No Composer or command-line tools are needed on your store.**
 
-When a public release is available, open this repository's **Releases** section and download **`quixdevs-stocknotifier.zip`** under the release's Assets. Use that installable asset rather than GitHub's automatically generated source archives.
+Open [GitHub Releases](https://github.com/hasancse06/QuixDevs-StockNotifier/releases) and download **`quixdevs-stocknotifier.zip`** from a published release’s **Assets**. Use the installation asset described above.
 
-If no release is listed, the public installation ZIP has not been published. Maintainers can build it locally with `python3 bin/build-release.py` and follow the [publishing checklist](docs/github-publishing-checklist.md). The command creates the installable ZIP beside the repository folder without requiring Composer.
+If no release is listed, the public installation ZIP has not been published. Maintainers can build it locally with `python3 bin/build-release.py` and follow the [publishing checklist](docs/github-publishing-checklist.md). The command creates `dist/quixdevs-stocknotifier.zip`, a file manifest and SHA-256 sidecar without requiring Composer.
 
 1. In WordPress Admin, open **Plugins → Add Plugin → Upload Plugin**.
 2. Choose `quixdevs-stocknotifier.zip`, select **Install Now**, then **Activate Plugin**.
@@ -215,11 +223,14 @@ composer install
 composer test
 composer lint
 QSN_WP_ROOT=/path/to/isolated/qsn-tests/wordpress vendor/bin/phpunit -c phpunit-integration.xml.dist
+python3 -m unittest discover -s tests/Packaging -v
 python3 bin/build-release.py
+python3 bin/validate-release.py
 ```
 
 Production autoloading is bundled. Development dependencies, tests, CI, local configuration and presentation assets are excluded from the installable ZIP. Nothing is published or deployed by the build script.
 
+- [Runtime-only packaging and draft release workflow](docs/release-distribution.md)
 - [GitHub listing and topics](docs/github-listing.md), [release notes](docs/github-release-notes.md) and [publishing checklist](docs/github-publishing-checklist.md)
 - [Editable branding and exports](docs/branding/README.md), [real screenshot details](docs/screenshots/README.md) and [WordPress.org asset handoff](wordpress-org-assets/README.md)
 - [Contributing](CONTRIBUTING.md), [security reporting](SECURITY.md) and [changelog](CHANGELOG.md)

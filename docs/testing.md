@@ -38,10 +38,12 @@ vendor/bin/phpcs --standard=phpcs.xml.dist
 vendor/bin/phpcs --standard=PHPCompatibilityWP --runtime-set testVersion 8.1- includes quixdevs-stocknotifier.php uninstall.php
 find includes -name '*.php' -print0 | xargs -0 -n1 php -l
 node --check assets/js/admin.js
+python3 -m unittest discover -s tests/Packaging -v
 python3 bin/build-release.py
+python3 bin/validate-release.py
 ```
 
-The lockfile is constrained to PHP 8.1 so CI dependency resolution does not accidentally require the developer's PHP 8.4 runtime. The GitHub workflow runs unit, lint, syntax and package checks on PHP 8.1 and 8.4. That remote workflow has not been executed or claimed as passing.
+The lockfile is constrained to PHP 8.1 so CI dependency resolution does not accidentally require the developer's PHP 8.4 runtime. The reusable GitHub quality workflow runs unit, lint, syntax and package checks on PHP 8.1 and 8.4. The draft-release workflow reuses it before producing verified runtime-only release assets. See [release distribution](release-distribution.md) for the current packaging checks and exact artifact paths. That remote workflow has not been executed or claimed as passing.
 
 ## Reproduce integration checks safely
 
@@ -65,7 +67,7 @@ Use Playwright with Chrome and a local-only PHP server. Install Playwright in an
 QSN_BASE_URL=http://127.0.0.1:8097 QSN_ADMIN_USER=... QSN_ADMIN_PASSWORD=... node tests/Browser/admin.cjs
 ```
 
-`install.cjs` verifies the actual upload workflow and expects the plugin to be absent from the disposable site while WooCommerce is active. It uses the ZIP in the repository's parent directory. The browser harness aborts non-local network requests and stores genuine screenshots in `docs/screenshots/`.
+`install.cjs` verifies the actual upload workflow and expects the plugin to be absent from the disposable site while WooCommerce is active. It uses `dist/quixdevs-stocknotifier.zip`, or the explicit `QSN_INSTALL_ZIP` path when set. The browser harness aborts non-local network requests and stores genuine screenshots in `docs/screenshots/`.
 
 ## Test limitations
 

@@ -14,3 +14,5 @@ Captured from the working isolated local WordPress test site on 2026-10-10 (Asia
 [settings-mobile.png](settings-mobile.png) is a browser viewport capture, not a mobile-device test. [installation.png](installation.png) records the native WordPress ZIP upload workflow. No interface elements or successful sends were fabricated. The six directory screenshots in `wordpress-org-assets` are byte-for-byte copies in the order above, matching `readme.txt`.
 
 The [browser harness](../../tests/Browser/admin.cjs) documents capture and input checks. Use a disposable local store, synthetic data and a mail interceptor when recapturing. Keep screenshots out of the runtime plugin ZIP.
+
+After changing originals, regenerate listing copies with `python3 bin/build-directory-assets.py`. The `--check` mode used in CI verifies byte-identical copies and preserves existing README links and readme screenshot order.

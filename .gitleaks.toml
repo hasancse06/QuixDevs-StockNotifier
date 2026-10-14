@@ -1,0 +1,14 @@
+title = "StockNotifier release source scan"
+
+[extend]
+useDefault = true
+
+# Scan maintained source, tests and docs; third-party installations and local
+# generated output are not release sources. The ZIP is scanned separately.
+[[allowlists]]
+description = "Ignored development installations and generated local output"
+paths = [
+  '''(^|/)(vendor|node_modules|\.git|__pycache__)(/|$)''',
+  '''(^|/)(dist|coverage|docs/verification)(/|$)''',
+  '''(^|/)\.phpunit\.result\.cache$''',
+]

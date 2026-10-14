@@ -1,0 +1,119 @@
+name: Prepare Draft Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing version tag containing this workflow (for example v1.0.0)
+        type: string
+        required: true
+        default: v1.0.0
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: stocknotifier-release-${{ inputs.tag || github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  identity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      tag: ${{ steps.identity.outputs.tag }}
+      version: ${{ steps.identity.outputs.version }}
+      commit: ${{ steps.identity.outputs.commit }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ inputs.tag || github.ref }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Require existing tag and consistent versions
+        id: identity
+        env:
+          RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
+        run: python3 bin/prepare-release.py --tag "$RELEASE_TAG" --github-output "$GITHUB_OUTPUT"
+
+  quality:
+    needs: identity
+    uses: ./.github/workflows/quality.yml
+    with:
+      ref: ${{ needs.identity.outputs.commit }}
+    permissions:
+      contents: read
+
+  package:
+    needs: [identity, quality]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ needs.identity.outputs.commit }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Recheck tag identity before building
+        env:
+          RELEASE_TAG: ${{ needs.identity.outputs.tag }}
+        run: python3 bin/prepare-release.py --tag "$RELEASE_TAG"
+      - name: Install checksum-pinned official Gitleaks
+        run: python3 bin/install-gitleaks.py --destination "$RUNNER_TEMP/quixdevs-release-tools"
+      - name: Scan maintained source for secrets
+        run: '"$RUNNER_TEMP/quixdevs-release-tools/gitleaks" dir . --config .gitleaks.toml --ignore-gitleaks-allow --redact --no-banner'
+      - name: Build canonical ZIP, manifest and SHA-256
+        env:
+          RELEASE_TAG: ${{ needs.identity.outputs.tag }}
+        run: python3 bin/build-release.py --tag "$RELEASE_TAG"
+      - name: Validate root, required components, source bytes and integrity
+        env:
+          RELEASE_TAG: ${{ needs.identity.outputs.tag }}
+        run: python3 bin/validate-release.py --tag "$RELEASE_TAG"
+      - name: Scan every extracted runtime file for secrets
+        run: |
+          runtime_dir=$(mktemp -d "$RUNNER_TEMP/qsn-runtime.XXXXXX")
+          python3 -m zipfile -e dist/quixdevs-stocknotifier.zip "$runtime_dir"
+          "$RUNNER_TEMP/quixdevs-release-tools/gitleaks" dir "$runtime_dir" --config .gitleaks.toml --ignore-gitleaks-allow --redact --no-banner
+      - name: Prepare draft notes
+        run: cp docs/github-release-notes.md dist/release-notes.md
+      - name: Pass only verified distribution artifacts
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: stocknotifier-release-${{ needs.identity.outputs.tag }}
+          path: |
+            dist/quixdevs-stocknotifier.zip
+            dist/quixdevs-stocknotifier.zip.sha256
+            dist/quixdevs-stocknotifier-manifest.json
+            dist/release-notes.md
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0
+
+  draft:
+    needs: [identity, package]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Only this job may create/edit an unpublished draft. Build/tests use read-only tokens.
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ needs.identity.outputs.commit }}
+          persist-credentials: false
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          name: stocknotifier-release-${{ needs.identity.outputs.tag }}
+          path: dist
+      - name: Create or refresh draft only; attach ZIP, checksum and manifest
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ needs.identity.outputs.tag }}
+          RELEASE_COMMIT: ${{ needs.identity.outputs.commit }}
+          RELEASE_REPOSITORY: ${{ github.repository }}
+        run: python3 bin/create-draft-release.py --repo "$RELEASE_REPOSITORY" --tag "$RELEASE_TAG" --expected-commit "$RELEASE_COMMIT"

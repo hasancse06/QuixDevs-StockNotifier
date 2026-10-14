@@ -20,3 +20,7 @@ Screenshots are unchanged copies of [the genuine demo captures](../docs/screensh
 After directory acceptance and authorized SVN publication, place the ten PNGs in the SVN repository's top-level `assets/`, alongside `trunk/` and `tags/`. Do not put them into runtime `trunk/assets/`, a version tag or the plugin's CSS/JS `assets/`. Do not upload this README as a listing asset. Review current directory asset requirements at submission time.
 
 [Editable artwork](../docs/branding/README.md) · [Publishing checklist](../docs/github-publishing-checklist.md)
+
+## Reproduce directory screenshots
+
+The canonical tracked originals are `docs/screenshots/`. The six byte-identical listing copies remain tracked to preserve direct GitHub asset links. Run `python3 bin/build-directory-assets.py` after recapturing originals, then `python3 bin/build-directory-assets.py --check` to verify synchronization. CI rejects drift. All 1,155,374 duplicate bytes remain outside the runtime ZIP.

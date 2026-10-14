@@ -5,13 +5,25 @@
 **Low Stock Alerts for WooCommerce**  
 Monitor Stock. Alert Vendors. Stay Informed.
 
-## Download the installable plugin
+<a name="download-the-installable-plugin"></a>
 
-**[Open GitHub Releases](https://github.com/hasancse06/QuixDevs-StockNotifier/releases)** → choose a published release → **Assets → `quixdevs-stocknotifier.zip`**.
+## 📦 Download & Install
 
-Download that lightweight installation asset. **Do not install GitHub's “Source code (zip)” or the full repository ZIP**; those are developer archives containing tests, documentation and presentation assets. If the installation asset is not listed yet, it has not been published. Draft releases remain for maintainer review.
+**[⬇️ Download Latest StockNotifier Plugin](https://github.com/hasancse06/QuixDevs-StockNotifier/releases/latest/download/quixdevs-stocknotifier.zip)**
 
-Install through **WordPress Admin → Plugins → Add Plugin → Upload Plugin** with WooCommerce active. [Build and release documentation](docs/release-distribution.md).
+Download the lightweight WordPress installation package.
+
+### Installation
+
+1. Install and activate WooCommerce.
+2. Open **WordPress Admin → Plugins → Add Plugin → Upload Plugin**.
+3. Select `quixdevs-stocknotifier.zip`.
+4. Click **Install Now**, then **Activate Plugin**.
+5. Open **StockNotifier → Settings** to configure your stock threshold and notification recipient source. Customize your message in **StockNotifier → Email Templates**.
+
+> **Important:** Download the installation ZIP from **GitHub Releases → Assets**. Do not use **GitHub Code → Download ZIP**, which contains the complete development repository.
+
+[Browse all releases](https://github.com/hasancse06/QuixDevs-StockNotifier/releases) · [Build and release documentation](docs/release-distribution.md)
 
 A free, open-source **WooCommerce low-stock notification plugin** for stores that need to alert product authors or marketplace vendors when managed inventory runs low. Choose one recipient system, set a whole-number threshold, and customize the email from native WordPress screens.
 
@@ -46,7 +58,7 @@ Version **1.0.0** · GPL-2.0-or-later · Published by **QuixDevs**
 
 Action Scheduler is supplied by WooCommerce. Minimum requirements describe the intended API baseline; they are not separate test claims. No optional provider plugin is needed in WordPress author mode. Activate individually per site; network activation is unsupported.
 
-## Installation
+## Installation details
 
 **WooCommerce must already be installed and active. No Composer or command-line tools are needed on your store.**
 
@@ -54,9 +66,7 @@ Open [GitHub Releases](https://github.com/hasancse06/QuixDevs-StockNotifier/rele
 
 If no release is listed, the public installation ZIP has not been published. Maintainers can build it locally with `python3 bin/build-release.py` and follow the [publishing checklist](docs/github-publishing-checklist.md). The command creates `dist/quixdevs-stocknotifier.zip`, a file manifest and SHA-256 sidecar without requiring Composer.
 
-1. In WordPress Admin, open **Plugins → Add Plugin → Upload Plugin**.
-2. Choose `quixdevs-stocknotifier.zip`, select **Install Now**, then **Activate Plugin**.
-3. Open **StockNotifier → Dashboard** and check scheduling health.
+After activation, open **StockNotifier → Dashboard** and check scheduling health.
 
 ## Quick start
 
